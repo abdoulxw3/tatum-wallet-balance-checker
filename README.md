@@ -25,7 +25,3 @@ A simple web-based tool that allows users to check the balance of any Ethereum w
 
 ## ðŸ“„ License
 MIT
-
----
-
-Made with â¤ï¸ by Abdullahi Ahmed
