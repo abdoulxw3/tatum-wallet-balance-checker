@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ETH Balance Checker</title>
+    <style>
+      body { font-family: Arial, sans-serif; padding: 20px; }
+      input, button { padding: 10px; margin-top: 10px; width: 300px; }
+      button { cursor: pointer; background-color: #4CAF50; color: white; border: none; }
+      #balance { margin-top: 20px; font-size: 18px; font-weight: bold; }
+    </style>
+  </head>
+  <body>
+    <h2>Ethereum Wallet Balance Checker</h2>
+    <input id="address" placeholder="Enter ETH address" />
+    <button onclick="checkBalance()">Check Balance</button>
+    <p id="balance"></p>
+
+    <script>
+      async function checkBalance() {
+        const address = document.getElementById("address").value;
+        const res = await fetch(`https://api.tatum.io/v3/ethereum/account/balance/${address}`, {
+          headers: { 'x-api-key': 'YOUR_TATUM_API_KEY' }
+        });
+        const data = await res.json();
+        document.getElementById("balance").innerText = `Balance: ${data.balance} ETH`;
+      }
+    </script>
+  </body>
+</html>
